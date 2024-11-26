@@ -1,16 +1,36 @@
 <ion-content>
-<app-header title="Perfil"></app-header>
+  <app-header title="Perfil"></app-header>
 
+  <div class="content ion-text-center">
+    <ion-icon class="avatar" name="person-circle-outline"></ion-icon>
+    
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Información Personal</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label>Nombre:</ion-label>
+          <div>{{ user?.name }}</div>
+        </ion-item>
+        <ion-item>
+          <ion-label>Correo:</ion-label>
+          <div>{{ user?.email }}</div>
+        </ion-item>
+        <ion-item>
+          <ion-label>Teléfono:</ion-label>
+          <div>{{ user?.phone }}</div>
+        </ion-item>
+        <ion-item>
+          <ion-label>RUT:</ion-label>
+          <div>{{ user?.rut }}</div>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
 
-<div class="content ion-text-center">
-
-  <ion-icon class="avatar" name="person-circle-outline"></ion-icon>
-  <h2>{{user.name}}</h2>
-  <div>{{user.email}}</div>
-
-  <ion-button (click)="signOut()" shape="round">
-    Cerrar Sesión
-    <ion-icon slot="end" name="log-out-outline"></ion-icon>
-  </ion-button>
-</div>
+    <ion-button (click)="signOut()" shape="round">
+      Cerrar Sesión
+      <ion-icon slot="end" name="log-out-outline"></ion-icon>
+    </ion-button>
+  </div>
 </ion-content>
