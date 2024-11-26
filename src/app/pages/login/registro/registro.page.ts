@@ -76,7 +76,7 @@ export class RegistroPage implements OnInit {
 
         // Presentamos un mensaje de éxito
         this.utilsSvc.presentToast({
-          message: `¡Bienvenido a TaskFriend! ${user.name}`,
+          message: `¡Bienvenido ${user.name}!`,
           duration: 1500,
           color: 'success',
           icon: 'person-outline'

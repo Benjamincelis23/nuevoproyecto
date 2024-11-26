@@ -1,3 +1,5 @@
+
+
 .sign-up{
     padding: 15px;
 }
@@ -12,4 +14,13 @@ ion-button{
         width: 500 px;
         padding: 50px 10px;
     }
+}
+
+/* Estilo de la imagen */
+.login-image {
+  width: 200px;  /* Tamaño reducido de la imagen */
+  height: 200%;  /* Tamaño reducido de la imagen */
+  border-radius: 50%;  /* Hacemos que la imagen sea circular */
+  object-fit: cover;
+  margin-bottom: 15px;  /* Espacio entre la imagen y el título */
 }

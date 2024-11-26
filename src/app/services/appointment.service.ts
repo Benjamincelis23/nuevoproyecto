@@ -1,17 +1,27 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
-import { citasmedicas } from '../models/citasmedicas.model'; // Asegúrate de que el modelo esté bien importado
+import { appointment } from '../models/citasmedicas.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppointmentService {
-  private apiUrl = 'https://miapi.com/citas'; // Reemplaza con la URL de tu API
 
-  constructor(private http: HttpClient) {}
+  constructor(private firestore: AngularFirestore) { }
 
-  createAppointment(appointment: citasmedicas): Observable<citasmedicas> {
-    return this.http.post<citasmedicas>(this.apiUrl, appointment);
+  createAppointment(cita: appointment): Observable<any> {
+    // Aquí se agrega la cita a la colección 'citas' en Firestore
+    return new Observable((observer) => {
+      this.firestore.collection('citas').add(cita).then(
+        (docRef) => {
+          observer.next(docRef);
+          observer.complete();
+        },
+        (error) => {
+          observer.error(error);
+        }
+      );
+    });
   }
 }

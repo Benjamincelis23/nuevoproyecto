@@ -23,9 +23,17 @@ const routes: Routes = [
     loadChildren: () => import('./pages/error404/error404.module').then( m => m.Error404PageModule)
   },
   {
+    path: 'reserva',
+    loadChildren: () => import('./pages/reserva/reserva.module').then( m => m.ReservaPageModule)
+  },
+  {
     path: '**',
     redirectTo: 'error404',
     pathMatch: 'full'
+  },
+  {
+    path: 'reserva',
+    loadChildren: () => import('./pages/reserva/reserva.module').then( m => m.ReservaPageModule)
   },
 ];
 

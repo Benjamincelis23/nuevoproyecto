@@ -9,32 +9,36 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
-
 /* Core CSS required for Ionic components to work properly */
-
 @import "@ionic/angular/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
-
 @import "@ionic/angular/css/normalize.css";
 @import "@ionic/angular/css/structure.css";
 @import "@ionic/angular/css/typography.css";
 @import "@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
-
 @import "@ionic/angular/css/padding.css";
 @import "@ionic/angular/css/float-elements.css";
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
+/* Definir color primario como celeste tipo hospital */
+:root {
+  --ion-color-primary: #44a7cf; /* Celeste tipo hospital */
+  --ion-color-primary-contrast: #ffffff; /* Texto blanco para contraste */
+  --ion-color-light: #f1f3f4; /* Fondo más claro opcional */
+}
+
+/* Estilos personalizados */
 ion-content {
     --background: var(--ion-color-primary);
     --color: var(--ion-color-primary-contrast);
 }
 
-h1{
+h1 {
     font-size: 30px;
 }
 
@@ -46,49 +50,48 @@ h1{
     border-radius: 20px 20px 0 0;
     margin-top: 5vh;
     padding: 15px 0;
-
     box-shadow: 10px -8px 40px -16px rgba(0, 0, 0, 0.55);
     -webkit-box-shadow: 10px -8px 40px -16px rgba(0, 0, 0, 0.55);
     -moz-box-shadow: 10px -8px 40px -16px rgba(0, 0, 0, 0.55);
 }
 
-ion-item{
+ion-item {
     --background: "transparent";
 }
 
-.validators{
+.validators {
     font-size: 14px;
     color: var(--ion-color-danger);
     padding-bottom: 15px;
     text-align: center;
 }
 
-ion-button{
+ion-button {
     text-transform: capitalize;
 }
 
-.d-flex-center{
+.d-flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.add-update-modal{
+.add-update-modal {
     --height: 95%;
     --border-radius: 20px;
 }
 
-.empty{
+.empty {
     opacity: 30%;
     text-align: center;
-    
-    ion-icon{
+
+    ion-icon {
         font-size: 130px;
     }
 }
 
-@media screen and (max-width: 768px){
-    .add-update-modal{
+@media screen and (max-width: 768px) {
+    .add-update-modal {
         --height: 100%;
         --border-radius: 0px;
     }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { citasmedicas } from 'src/app/models/citasmedicas.model'; // Cambiado de Task a Appointment
+import { appointment } from 'src/app/models/citasmedicas.model'; // Cambiado de Task a Appointment
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { UtilsService } from 'src/app/services/utils.service';
 import { AppointmentComponent } from 'src/app/compartido/componentes/appointment/appointment.component'; // Ya estaba cambiado correctamente
@@ -13,7 +13,7 @@ import { user } from 'src/app/models/user.model';
 export class HomePage implements OnInit {
 
   user = {} as user;
-  appointments: citasmedicas[] = []; // Cambiado Task[] a Appointment[]
+  appointments: appointment[] = []; // Cambiado Task[] a Appointment[]
   loading: boolean = false;
 
   constructor(
@@ -33,7 +33,7 @@ export class HomePage implements OnInit {
     return this.user = this.utilsSvc.getElementFromLocalStorage('user');
   }
 
-  async addOrUpdateAppointment(appointment?: citasmedicas) { // Cambiado Task a Appointment
+  async addOrUpdateAppointment(appointment?: appointment) { // Cambiado Task a Appointment
     let res = await this.utilsSvc.presentModal({
       component: AppointmentComponent, // Mantener AppointmentComponent
       componentProps: { appointment },
@@ -52,7 +52,7 @@ export class HomePage implements OnInit {
     this.loading = true;
 
     let sub = this.firebaseSvc.getSubcollection(path, 'appointments').subscribe({ // Mantener appointments como está
-      next: (res: citasmedicas[]) => { // Cambiado Task[] a Appointment[]
+      next: (res: appointment[]) => { // Cambiado Task[] a Appointment[]
         console.log(res);
         this.appointments = res; // Mantener appointments como está
         sub.unsubscribe();
@@ -61,7 +61,7 @@ export class HomePage implements OnInit {
     })
   }
 
-  confirmDeleteAppointment(appointment: citasmedicas) { // Cambiado Task a Appointment
+  confirmDeleteAppointment(appointment: appointment) { // Cambiado Task a Appointment
     this.utilsSvc.presentAlert({
       header: 'Eliminar Cita',
       message: '¿Quieres eliminar esta cita?',
@@ -80,7 +80,7 @@ export class HomePage implements OnInit {
     })
   }
 
-  deleteAppointment(appointment: citasmedicas) { // Cambiado Task a Appointment
+  deleteAppointment(appointment: appointment) { // Cambiado Task a Appointment
     let path = `users/${this.user.uid}/appointments/${appointment.id}`; // Mantener appointments como está
 
     this.utilsSvc.presentLoading({
@@ -112,13 +112,13 @@ export class HomePage implements OnInit {
   }
 
   // Método para ver la cita
-  viewAppointment(appointment: citasmedicas) {
+  viewAppointment(appointment:  appointment) {
     console.log('Viendo cita:', appointment);
     // Aquí puedes agregar la lógica para mostrar los detalles de la cita, por ejemplo, abrir un modal o navegar a otra página.
   }
 
   // Método para confirmar la cancelación de la cita
-  confirmCancelAppointment(appointment: citasmedicas) {
+  confirmCancelAppointment(appointment: appointment) {
     this.utilsSvc.presentAlert({
       header: 'Cancelar Cita',
       message: '¿Estás seguro de que deseas cancelar esta cita?',

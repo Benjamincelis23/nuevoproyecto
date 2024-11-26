@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController, ModalController, ToastController } from '@ionic/angular';
-import { citasmedicas } from '../models/citasmedicas.model';
+import { appointment } from '../models/citasmedicas.model';
 
 @Injectable({
   providedIn: 'root'
@@ -66,7 +66,7 @@ export class UtilsService {
   }
 
   // Calcula el porcentaje de elementos completados en las citas
-  getPercentage(appointment: citasmedicas) {
+  getPercentage(appointment: appointment) {
     const completedItems = appointment.items.filter(item => item.completed).length;
     const totalItems = appointment.items.length;
     const percentage = (100 / totalItems) * completedItems;
