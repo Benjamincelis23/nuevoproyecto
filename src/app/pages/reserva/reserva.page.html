@@ -1,27 +1,41 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Reserva de Cita</ion-title>
+    <ion-title>Reservar Cita</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Selecciona una Fecha y Hora</ion-card-title>
-    </ion-card-header>
+  <form [formGroup]="reservaForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input formControlName="nombre" type="text"></ion-input>
+    </ion-item>
 
-    <ion-card-content>
-      <ion-item>
-        <ion-label position="floating">Fecha</ion-label>
-        <ion-datetime display-format="YYYY-MM-DD" [(ngModel)]="fechaReserva"></ion-datetime>
-      </ion-item>
+    <ion-item>
+      <ion-label position="floating">Correo Electrónico</ion-label>
+      <ion-input formControlName="correo" type="email"></ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Hora</ion-label>
-        <ion-datetime display-format="HH:mm" [(ngModel)]="horaReserva"></ion-datetime>
-      </ion-item>
+    <ion-item>
+      <ion-label position="floating">Teléfono</ion-label>
+      <ion-input formControlName="telefono" type="text"></ion-input>
+    </ion-item>
 
-      <ion-button expand="full" (click)="realizarReserva()">Realizar Reserva</ion-button>
-    </ion-card-content>
-  </ion-card>
+    <ion-item>
+      <ion-label position="floating">Fecha</ion-label>
+      <ion-datetime formControlName="fecha" displayFormat="DD/MM/YYYY"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Especialidad</ion-label>
+      <ion-select formControlName="especialidad">
+        <ion-select-option value="cardiologia">Cardiología</ion-select-option>
+        <ion-select-option value="dermatologia">Dermatología</ion-select-option>
+        <ion-select-option value="pediatria">Pediatría</ion-select-option>
+        <!-- Agrega más especialidades aquí -->
+      </ion-select>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" [disabled]="!reservaForm.valid">Reservar Cita</ion-button>
+  </form>
 </ion-content>

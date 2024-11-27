@@ -1,11 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Asegúrate de importar ReactiveFormsModule
 import { IonicModule } from '@ionic/angular';
-
-import { ReservaPageRoutingModule } from './reserva-routing.module';
-
 import { ReservaPage } from './reserva.page';
 
 @NgModule({
@@ -13,7 +9,7 @@ import { ReservaPage } from './reserva.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    ReservaPageRoutingModule
+    ReactiveFormsModule // Asegúrate de agregar esto
   ],
   declarations: [ReservaPage]
 })

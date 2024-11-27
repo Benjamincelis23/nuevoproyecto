@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-
+import { ReservaPageModule } from './pages/reserva/reserva.module'; // Asegúrate de que esté importado
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 

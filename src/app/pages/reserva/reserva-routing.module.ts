@@ -1,7 +1,7 @@
+// reserva-routing.module.ts
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-
-import { ReservaPage } from './reserva.page';
+import { RouterModule, Routes } from '@angular/router';
+import { ReservaPage } from './reserva.page'; // Asegúrate de que la ruta sea correcta
 
 const routes: Routes = [
   {
@@ -12,6 +12,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class ReservaPageRoutingModule {}

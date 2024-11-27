@@ -31,10 +31,7 @@ const routes: Routes = [
     redirectTo: 'error404',
     pathMatch: 'full'
   },
-  {
-    path: 'reserva',
-    loadChildren: () => import('./pages/reserva/reserva.module').then( m => m.ReservaPageModule)
-  },
+
 ];
 
 @NgModule({
